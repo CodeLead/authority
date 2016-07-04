@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">authority</string>
+    <string name="permission_require_title">需要权限</string>
+    <string name="write_contact_permission_require_msg">需要修改联系人权限</string>
+    <string name="dialog_positive_btn_text">设置</string>
+    <string name="dialog_cancel_btn_text">取消</string>
+    <string name="dialog_help">帮助</string>
+    <string name="string_help_text">当前应用缺少必要权限。\n\n请点击\"设置\"-\"安全/权限/权限管理\"-所需权限设置成允许。\n\n最后点击两次后退按钮，即可返回。</string>
+    <string name="error_msg">错误</string>
+    <string name="thost_lack_permission_msg">缺少关键权限，应用已经停止</string>
+</resources>
