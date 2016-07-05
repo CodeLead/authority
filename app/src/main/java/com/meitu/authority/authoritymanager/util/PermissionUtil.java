@@ -1,5 +1,6 @@
 package com.meitu.authority.authoritymanager.util;
 
+import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
@@ -128,6 +129,9 @@ public class PermissionUtil {
 //                e.printStackTrace();
                 return true;
             }
+        }
+        if(testFile.exists()) {
+            testFile.delete();
         }
         return false;
     }
