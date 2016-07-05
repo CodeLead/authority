@@ -60,7 +60,7 @@ public class PermissionUtil {
     }
 
     /**
-     * 6.0及以上检查权限
+     * 检查权限
      * @param permission
      * @return
      */
@@ -71,8 +71,6 @@ public class PermissionUtil {
                     != PackageManager.PERMISSION_GRANTED;
         }else {
             //6.0以下使用PermissiontChecker进行权限检查
-            boolean b =  PermissionChecker.checkSelfPermission(mContext, permission)
-                    == PermissionChecker.PERMISSION_GRANTED;
             return PermissionChecker.checkSelfPermission(mContext, permission)
                     != PermissionChecker.PERMISSION_GRANTED;
         }
