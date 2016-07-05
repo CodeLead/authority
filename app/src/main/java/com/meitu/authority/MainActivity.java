@@ -27,7 +27,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         // 缺少权限时, 进入权限配置页面
-        if (mPermissionUtil.lackPermissions()) {
+//        if (mPermissionUtil.lackPermissions()) {
+//            startPermissionsActivity();
+//        }
+        //缺少存储卡写入权限，进入设置页面
+        if(mPermissionUtil.lackExtenalStoragePermission()) {
             startPermissionsActivity();
         }
     }

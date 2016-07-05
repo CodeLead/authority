@@ -6,12 +6,15 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.PermissionChecker;
 import android.support.v4.view.PagerAdapter;
 import android.util.Log;
 
+import java.io.File;
+import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -60,7 +63,7 @@ public class PermissionUtil {
     }
 
     /**
-     * 检查权限
+     * 检查所有权限
      * @param permission
      * @return
      */
@@ -109,4 +112,24 @@ public class PermissionUtil {
 
         return hashPermissions;
     }
+
+    /**
+     * 判断是否有存储权限
+     * 如果能创建文件说明有权限，如果发生异常说明没有权限
+     * @return
+     */
+    public boolean lackExtenalStoragePermission() {
+        String testFileName = Environment.getExternalStorageDirectory() + "/meipai_test.txt" ;
+        File testFile = new File(testFileName);
+        if(!testFile.exists()) {
+            try {
+                testFile.createNewFile();
+            } catch (IOException e) {
+//                e.printStackTrace();
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

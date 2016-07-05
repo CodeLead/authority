@@ -54,41 +54,35 @@ public class PermissionCheckActivity extends AppCompatActivity {
             /**
              * 判断是否有缺少权限
              */
-            if(mPermissionUtil.lackPermissions()) {
-                //缺少权限
-//                requestPermissions(permissions);
+//            if(mPermissionUtil.lackPermissions()) {
+//                //缺少权限
+////                requestPermissions(permissions);
+//                showMissingPermissionDialog();
+//            }else {
+//                //没有缺少权限
+//                allPermissionsGranted();
+//            }
+            if(mPermissionUtil.lackExtenalStoragePermission()) {
                 showMissingPermissionDialog();
             }else {
-                //没有缺少权限
-                allPermissionsGranted();
+                extenalStoragePermissionGranted();
             }
         }
     }
 
-//    /**
-//     * 请求权限
-//     * @param permissions
-//     */
-//    private void requestPermissions(String... permissions) {
-//        ActivityCompat.requestPermissions(this, permissions, PERMISSION_REQUEST_CODE);
-//    }
-
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-//        if(requestCode == PERMISSION_REQUEST_CODE && mPermissionUtil.hasAllPermissionsGranted(grantResults)) {
-//            isRequireCheck = true;
-//            allPermissionsGranted();
-//        }else {
-//            isRequireCheck = false;
-//            showMissingPermissionDialog();
-//        }
-//    }
 
     /**
      * 所有权限都已经授权
      */
     private void allPermissionsGranted() {
         //TODO
+    }
+
+    /**
+     * 存储权限已经授权
+     */
+    private void extenalStoragePermissionGranted() {
+
     }
 
 
@@ -136,4 +130,6 @@ public class PermissionCheckActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
+
 }
