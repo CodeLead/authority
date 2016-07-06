@@ -48,7 +48,7 @@ public class PermissionUtil {
     }
 
     /**
-     * 6.0及以上判断权限集合
+     * 6.0及以上判断Manifest声明全部权限是否全部已经授权
      * @return
      */
     public boolean lackPermissions() {
