@@ -1,5 +1,6 @@
 package com.meitu.authority.authoritymanager;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -18,7 +19,7 @@ public class PermissionCheckActivity extends AppCompatActivity {
 
 //    public static final int PERMISSIONS_GRANTED = 0;          //点击设置返回码
     public static final int PERMISSIONS_DENIED = -1;            //取消返回码
-    private static final int PERMISSION_REQUEST_CODE = 0x1000;  //请求权限请求码
+//    private static final int PERMISSION_REQUEST_CODE = 0x1000;  //请求权限请求码
     private static final String PACKAGE_URL_SCHEME = "package:"; //package scheme
     /**
      * 权限工具
@@ -52,17 +53,9 @@ public class PermissionCheckActivity extends AppCompatActivity {
         super.onResume();
         if(isRequireCheck) {
             /**
-             * 判断是否有缺少权限
+             * 判断是否有缺少外部存储卡读写权限
              */
-//            if(mPermissionUtil.lackPermissions()) {
-//                //缺少权限
-////                requestPermissions(permissions);
-//                showMissingPermissionDialog();
-//            }else {
-//                //没有缺少权限
-//                allPermissionsGranted();
-//            }
-            if(mPermissionUtil.lackExtenalStoragePermission()) {
+            if(mPermissionUtil.lackPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
                 showMissingPermissionDialog();
             }else {
                 extenalStoragePermissionGranted();
@@ -72,17 +65,10 @@ public class PermissionCheckActivity extends AppCompatActivity {
 
 
     /**
-     * 所有权限都已经授权
-     */
-    private void allPermissionsGranted() {
-        //TODO
-    }
-
-    /**
      * 存储权限已经授权
      */
     private void extenalStoragePermissionGranted() {
-
+        //TODO
     }
 
 

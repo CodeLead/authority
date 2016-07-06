@@ -64,7 +64,23 @@ public class PermissionUtil {
     }
 
     /**
-     * 检查所有权限
+     * 判断是否缺少指定的权限
+     * @param permissions 指定权限列表
+     * @return
+     */
+    public boolean lackPermissions(String...permissions) {
+        if (permissions != null) {
+            for(String permission : permissions) {
+                if(lackPermission(permission)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 检查指定权限是否被开启
      * @param permission
      * @return
      */
@@ -115,7 +131,7 @@ public class PermissionUtil {
     }
 
     /**
-     * 判断是否有存储权限
+     * 6.0以下判断是否有存储权限
      * 如果能创建文件说明有权限，如果发生异常说明没有权限
      * @return
      */

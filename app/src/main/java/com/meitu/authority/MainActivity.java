@@ -1,5 +1,6 @@
 package com.meitu.authority;
 
+import android.Manifest;
 import android.content.Intent;
 import android.preference.PreferenceActivity;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private PermissionUtil mPermissionUtil;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,12 +29,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        // 缺少权限时, 进入权限配置页面
-//        if (mPermissionUtil.lackPermissions()) {
-//            startPermissionsActivity();
-//        }
         //缺少存储卡写入权限，进入设置页面
-        if(mPermissionUtil.lackExtenalStoragePermission()) {
+        if(mPermissionUtil.lackPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
             startPermissionsActivity();
         }
     }
