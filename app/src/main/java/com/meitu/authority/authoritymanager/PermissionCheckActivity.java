@@ -78,18 +78,17 @@ public class PermissionCheckActivity extends AppCompatActivity {
      */
     private void showMissingPermissionDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(PermissionCheckActivity.this);
-        builder.setTitle(R.string.dialog_help);
         builder.setMessage(R.string.string_help_text);
 
         // 拒绝, 提示缺少关键应用，退出
-        builder.setNegativeButton(R.string.dialog_cancel_btn_text, new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.permission_dialog_cancel_btn_text, new DialogInterface.OnClickListener() {
             @Override public void onClick(DialogInterface dialog, int which) {
                 setResult(PERMISSIONS_DENIED);
                 finish();
             }
         });
 
-        builder.setPositiveButton(R.string.dialog_positive_btn_text, new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.permission_dialog_positive_btn_text, new DialogInterface.OnClickListener() {
             @Override public void onClick(DialogInterface dialog, int which) {
                 startAppSettings();
                 finish();
